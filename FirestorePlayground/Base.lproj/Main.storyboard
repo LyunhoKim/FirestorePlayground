@@ -18,8 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eck-OH-4g9">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Ecz-T4-a75"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="trash" id="yQm-83-UFe">
+                                        <connections>
+                                            <action selector="pushedTrashButton:" destination="BYZ-38-t0r" id="wGg-2F-Sjz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hCZ-qg-6mb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="730"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdnetifier" textLabel="fgB-8h-zyg" detailTextLabel="Hp0-iu-ooG" style="IBUITableViewCellStyleSubtitle" id="EoP-DO-hFz">
@@ -57,9 +70,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hCZ-qg-6mb" secondAttribute="trailing" id="0ho-fj-fmW"/>
-                            <constraint firstItem="hCZ-qg-6mb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ZnO-Bz-mb2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eck-OH-4g9" secondAttribute="bottom" id="8pW-bn-ybC"/>
+                            <constraint firstItem="hCZ-qg-6mb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZnO-Bz-mb2"/>
+                            <constraint firstItem="eck-OH-4g9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eJz-ND-zdO"/>
                             <constraint firstItem="hCZ-qg-6mb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jHE-RN-6by"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hCZ-qg-6mb" secondAttribute="bottom" id="mro-Zf-k71"/>
+                            <constraint firstItem="eck-OH-4g9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kZA-Dn-bbb"/>
+                            <constraint firstItem="eck-OH-4g9" firstAttribute="top" secondItem="hCZ-qg-6mb" secondAttribute="bottom" id="mro-Zf-k71"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -69,10 +85,16 @@
                                 <action selector="pushedAddButton:" destination="BYZ-38-t0r" id="NIc-U1-7ig"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Cqi-ge-rSR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Cqi-ge-rSR">
+                            <connections>
+                                <action selector="pushedEditButton:" destination="BYZ-38-t0r" id="CyO-Sr-ajC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editButton" destination="Cqi-ge-rSR" id="ytR-t5-ZBD"/>
                         <outlet property="tableView" destination="hCZ-qg-6mb" id="G4L-hx-NV3"/>
+                        <outlet property="toolbar" destination="eck-OH-4g9" id="O2M-7K-mze"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

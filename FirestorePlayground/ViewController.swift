@@ -13,6 +13,8 @@ import FirebaseFirestore
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var editButton: UIBarButtonItem!
+    @IBOutlet var toolbar: UIToolbar!
     
     let cellIdnetifier = "cellIdnetifier"
     let rootDocument = "mainCollection"
@@ -84,10 +86,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func pushedAddButton(_ sender: Any) {
-        
         showInputDialog()
-        
     }
+    @IBAction func pushedEditButton(_ sender: Any) {
+        
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        
+        toolbar.isHidden = !tableView.isEditing
+        
+//        if tableView.isEditing {
+//            editButton.title = "Edit"
+//            tableView.setEditing(false, animated: true)
+//        } else {
+//            editButton.title = "Cancel"
+//            tableView.setEditing(true, animated: true)
+//        }
+    }
+    @IBAction func pushedTrashButton(_ sender: Any) {
+        if let selectedRows = tableView.indexPathsForSelectedRows {
+            for selectedRow in selectedRows {
+                
+            }
+        }
+
+    }
+    
     
     func showInputDialog() {
         //Creating UIAlertController and
