@@ -105,10 +105,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func pushedTrashButton(_ sender: Any) {
         if let selectedRows = tableView.indexPathsForSelectedRows {
             for selectedRow in selectedRows {
+                removeTitle(selectedRow.row)
+                
                 
             }
         }
 
+    }
+    
+    // 해당 Index에 해당하는 데이터 삭제
+    func removeTitle(_ index: Int) {
+        if let documentId = data[index].firebaseDocId {
+            let db: Firestore = Firestore.firestore()
+            db.collection(rootDocument).document(documentId).delete { (err) in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                    self.data.remove(at: index)
+                    self.tableView.reloadData()
+                }
+            }
+            
+        } else {
+                print("delete error with Firestore documentId")
+        }
+    }
+    
+    func addTitle() {
+        
     }
     
     
