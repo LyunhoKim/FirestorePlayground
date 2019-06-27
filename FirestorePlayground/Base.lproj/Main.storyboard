@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Firestore Playground-->
+        <!--Firestore Example-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FirestorePlayground" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,13 +79,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Firestore Playground" id="8o9-sq-g1U">
+                    <navigationItem key="navigationItem" title="Firestore Example" id="8o9-sq-g1U">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="C40-JC-6W6">
                             <connections>
                                 <action selector="pushedAddButton:" destination="BYZ-38-t0r" id="NIc-U1-7ig"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Cqi-ge-rSR">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="Cqi-ge-rSR">
                             <connections>
                                 <action selector="pushedEditButton:" destination="BYZ-38-t0r" id="CyO-Sr-ajC"/>
                             </connections>

@@ -88,29 +88,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func pushedAddButton(_ sender: Any) {
         showInputDialog()
     }
-    @IBAction func pushedEditButton(_ sender: Any) {
-        
-        tableView.setEditing(!tableView.isEditing, animated: true)
-        
-        toolbar.isHidden = !tableView.isEditing
-        
-//        if tableView.isEditing {
-//            editButton.title = "Edit"
-//            tableView.setEditing(false, animated: true)
-//        } else {
-//            editButton.title = "Cancel"
-//            tableView.setEditing(true, animated: true)
-//        }
+    @IBAction func pushedEditButton(_ sender: UIBarButtonItem) {
+        toggleViews()
     }
     @IBAction func pushedTrashButton(_ sender: Any) {
         if let selectedRows = tableView.indexPathsForSelectedRows {
             for selectedRow in selectedRows {
                 removeTitle(selectedRow.row)
-                
-                
             }
         }
+        toggleViews()
 
+    }
+    
+    func toggleViews() {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        toolbar.isHidden = !tableView.isEditing
+        editButton.title = tableView.isEditing ? "Cancel" : "Edit"
     }
     
     // 해당 Index에 해당하는 데이터 삭제
@@ -130,10 +124,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
                 print("delete error with Firestore documentId")
         }
-    }
-    
-    func addTitle() {
-        
     }
     
     
